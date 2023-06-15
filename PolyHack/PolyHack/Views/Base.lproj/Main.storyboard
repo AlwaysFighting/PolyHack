@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eUv-Vr-hSo">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--SplashVC-->
+        <scene sceneID="ZR2-4H-MRi">
+            <objects>
+                <viewController storyboardIdentifier="SplashVC" id="eUv-Vr-hSo" customClass="SplashVC" customModule="PolyHack" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kca-4X-n3y">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tI4-7D-2iq">
+                                <rect key="frame" x="60" y="357" width="273" height="147.66666666666663"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="gAf-om-IR0">
+                                        <rect key="frame" x="1.6666666666666572" y="0.0" width="270" height="117"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="117" id="OiF-uG-AV7"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's get out of the Echo Chamber!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5I-1v-STO">
+                                        <rect key="frame" x="5" y="127.00000000000001" width="263" height="20.666666666666671"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
+                                        <color key="textColor" name="MainColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pNQ-FN-KS7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pNQ-FN-KS7" firstAttribute="trailing" secondItem="tI4-7D-2iq" secondAttribute="trailing" constant="60" id="RVS-Xa-02q"/>
+                            <constraint firstItem="tI4-7D-2iq" firstAttribute="leading" secondItem="pNQ-FN-KS7" secondAttribute="leading" constant="60" id="Zzk-QC-OLa"/>
+                            <constraint firstItem="tI4-7D-2iq" firstAttribute="top" secondItem="pNQ-FN-KS7" secondAttribute="top" constant="298" id="qYB-D5-FgF"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TCp-ga-Pys" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-842" y="4"/>
+        </scene>
+        <!--LoginVC-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="LoginVC" id="BYZ-38-t0r" customClass="LoginVC" customModule="PolyHack" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="HkI-5p-697">
+                                <rect key="frame" x="94" y="248" width="205" height="117"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3R-hk-jCK">
+                                <rect key="frame" x="40" y="529" width="313" height="54"/>
+                                <color key="backgroundColor" name="MainColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="IFo-dI-0AX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="로그인"/>
+                                <connections>
+                                    <action selector="LoginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Q1-2y-WJO"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="HGf-g6-fCO">
+                                <rect key="frame" x="40" y="385" width="313" height="120"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ex) echo_chamber" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="j5G-9D-pUd">
+                                        <rect key="frame" x="0.0" y="0.0" width="313" height="54"/>
+                                        <color key="tintColor" name="MainColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="Vmn-l7-gLi"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" keyboardAppearance="light" returnKeyType="join" textContentType="name"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ex) echochamber12!!" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="o58-PT-1k2">
+                                        <rect key="frame" x="0.0" y="66" width="313" height="54"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="UzO-ax-vP7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" keyboardAppearance="light" returnKeyType="join" textContentType="password"/>
+                                    </textField>
+                                    <label hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0m-SY-PA9">
+                                        <rect key="frame" x="0.0" y="120" width="313" height="0.0"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="13"/>
+                                        <color key="textColor" name="ErrorColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5t-ar-8HT">
+                                <rect key="frame" x="40" y="619" width="313" height="34"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
+                                <color key="tintColor" name="MainColor"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Sign up">
+                                    <color key="titleColor" name="MainColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="RegisterBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kvt-oN-36s"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="J5t-ar-8HT" firstAttribute="top" secondItem="D3R-hk-jCK" secondAttribute="bottom" constant="36" id="62L-FD-kpB"/>
+                            <constraint firstItem="D3R-hk-jCK" firstAttribute="top" secondItem="HGf-g6-fCO" secondAttribute="bottom" constant="24" id="NeF-cM-Kmw"/>
+                            <constraint firstItem="D3R-hk-jCK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="RA6-1U-ZXx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="J5t-ar-8HT" secondAttribute="trailing" constant="40" id="SfN-lJ-5m7"/>
+                            <constraint firstItem="HkI-5p-697" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="189" id="Uwe-sH-uKi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="D3R-hk-jCK" secondAttribute="trailing" constant="40" id="ehe-NH-70I"/>
+                            <constraint firstItem="HGf-g6-fCO" firstAttribute="top" secondItem="HkI-5p-697" secondAttribute="bottom" constant="20" id="gTu-aZ-Fz1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HkI-5p-697" secondAttribute="trailing" constant="94" id="jZu-uj-pSO"/>
+                            <constraint firstItem="HkI-5p-697" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="94" id="ueC-CF-kt4"/>
+                            <constraint firstItem="HGf-g6-fCO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="xpA-xK-svK"/>
+                            <constraint firstItem="J5t-ar-8HT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="y1a-Q3-TjC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HGf-g6-fCO" secondAttribute="trailing" constant="40" id="z5r-6Q-mIJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="errorLabel" destination="G0m-SY-PA9" id="UBZ-j6-nCI"/>
+                        <outlet property="loginBtn" destination="D3R-hk-jCK" id="UnF-PV-ccb"/>
+                        <outlet property="loginTextField" destination="j5G-9D-pUd" id="JC0-Tt-njR"/>
+                        <outlet property="passwordTextField" destination="o58-PT-1k2" id="qJJ-VN-yBB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-83.206106870229007" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Logo" width="270" height="117"/>
+        <namedColor name="ErrorColor">
+            <color red="1" green="0.20392156862745098" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MainColor">
+            <color red="0.14509806036949158" green="0.34509804844856262" blue="0.67058825492858887" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

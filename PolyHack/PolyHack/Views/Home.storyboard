@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F2d-n1-LZg">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="HomeVC" id="Y6W-OH-hqX" customClass="HomeVC" customModule="PolyHack" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="99" translatesAutoresizingMaskIntoConstraints="NO" id="bb5-sh-rLA">
+                                <rect key="frame" x="36" y="81" width="321" height="39"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="RhM-ls-yaL">
+                                        <rect key="frame" x="0.0" y="0.0" width="89" height="39"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="39" id="efW-Yh-abm"/>
+                                            <constraint firstAttribute="width" constant="89" id="zvA-lp-14I"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgb-L0-Hkq">
+                                        <rect key="frame" x="297" y="7.6666666666666714" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="PXL-nv-0qK"/>
+                                            <constraint firstAttribute="width" constant="24" id="gcQ-o7-V4W"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="Search"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mdl-eN-gQS">
+                                <rect key="frame" x="0.0" y="147" width="393" height="294"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="294" id="xl4-kg-zqh"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODAY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01a-BA-ScF">
+                                <rect key="frame" x="36" y="463" width="321" height="29"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="01a-BA-ScF" secondAttribute="trailing" constant="36" id="DtW-f5-asy"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Mdl-eN-gQS" secondAttribute="trailing" id="LDS-Yu-Ez4"/>
+                            <constraint firstItem="01a-BA-ScF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="36" id="RJX-rE-ezW"/>
+                            <constraint firstItem="Mdl-eN-gQS" firstAttribute="top" secondItem="bb5-sh-rLA" secondAttribute="bottom" constant="27" id="eqt-aW-GbN"/>
+                            <constraint firstItem="bb5-sh-rLA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="36" id="jdy-eQ-V7f"/>
+                            <constraint firstItem="bb5-sh-rLA" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="22" id="mbF-nz-DsB"/>
+                            <constraint firstItem="Mdl-eN-gQS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="o1v-V3-G7p"/>
+                            <constraint firstItem="01a-BA-ScF" firstAttribute="top" secondItem="Mdl-eN-gQS" secondAttribute="bottom" constant="22" id="yKT-ue-42T"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bb5-sh-rLA" secondAttribute="trailing" constant="36" id="z3q-Yx-p6b"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="06Y-Xy-f4z"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1961.0687022900763" y="3.5211267605633805"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="2vO-Y1-HSx">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="F2d-n1-LZg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BhH-za-NXh">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="viewControllers" id="dKb-iR-s7F"/>
+                        <segue destination="G2Q-I6-sWB" kind="relationship" relationship="viewControllers" id="oxe-13-hX9"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ti4-S9-EfI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1034.3511450381679" y="3.5211267605633805"/>
+        </scene>
+        <!--MyPage-->
+        <scene sceneID="T7i-zU-HCg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MyPage" id="G2Q-I6-sWB" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Sux-Yg-8DQ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J5C-m2-AeC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1034" y="489"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Logo" width="270" height="117"/>
+        <image name="Search" width="24" height="24"/>
+        <image name="house" catalog="system" width="128" height="104"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
