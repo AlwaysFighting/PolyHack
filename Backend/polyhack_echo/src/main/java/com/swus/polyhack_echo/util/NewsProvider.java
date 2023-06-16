@@ -45,7 +45,7 @@ public class NewsProvider {
 
     public String getQuery(String source) {
 
-        return source.equals("CNN") ? ".article__content" : "#article-body";
+        return source.equals("CNN") ? ".article__content .paragraph" : "#article-body p,h2";
     }
 
     public void saveData(Article article) {
@@ -105,7 +105,6 @@ public class NewsProvider {
                         .sources("cnn,time")
                         .build(),
                 new NewsApiClient.ArticlesResponseCallback() {
-
                     @Override
                     public void onSuccess(ArticleResponse response) throws InternalError {
                         for (int i = 0; i < 5; i++) {
@@ -128,7 +127,6 @@ public class NewsProvider {
                                 log.error(e.getMessage());
                                 throw new InternalError("Database access error.");
                             }
-
                         }
 
                         log.info("Top Headlines update completed.");
@@ -150,7 +148,6 @@ public class NewsProvider {
                         .country("us")
                         .build(),
                 new NewsApiClient.SourcesCallback() {
-
                     @Override
                     public void onSuccess(SourcesResponse response) {
                         StringBuilder res = new StringBuilder("sources\n");
@@ -159,7 +156,6 @@ public class NewsProvider {
                             res.append(value).append("\n");
                         }
                         log.info(String.valueOf(res));
-
                     }
 
                     @Override
