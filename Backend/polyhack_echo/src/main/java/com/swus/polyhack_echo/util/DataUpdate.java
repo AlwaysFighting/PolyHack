@@ -37,4 +37,10 @@ public class DataUpdate {
             newsProvider.getTopHeadlines();
         }
     }
+
+    // Update top headlines every 1hrs
+    @Scheduled(cron = "0 0 */1 * * *")
+    public void UpdateTopHeadlines() {
+        newsProvider.getTopHeadlines();
+    }
 }
