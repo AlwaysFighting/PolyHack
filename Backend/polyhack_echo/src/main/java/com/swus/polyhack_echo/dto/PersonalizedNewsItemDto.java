@@ -14,6 +14,7 @@ import java.util.Map;
 @ToString
 @AllArgsConstructor
 public class PersonalizedNewsItemDto {
+    private Long news_id;
     private String title;
     private String source;
     private LocalDateTime published_at;
@@ -22,6 +23,7 @@ public class PersonalizedNewsItemDto {
     private Map<String, Object> preference_info;
 
     public PersonalizedNewsItemDto(NewsEntity news, Map<String, Object> preference_info) {
+        this.news_id = news.getId();
         this.title = news.getTitle();
         this.source = news.getSource();
         this.published_at = news.getPublishedAt();

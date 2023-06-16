@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @ToString
 @AllArgsConstructor
 public class NewsItemDto {
+    private Long news_id;
     private String title;
     private String source;
     private LocalDateTime published_at;
@@ -20,6 +21,7 @@ public class NewsItemDto {
     private String image_url;
 
     public NewsItemDto(NewsEntity news) {
+        this.news_id = news.getId();
         this.title = news.getTitle();
         this.source = news.getSource();
         this.published_at = news.getPublishedAt();
