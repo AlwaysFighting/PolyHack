@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import java.util.List;
 import java.util.Optional;
 
 public interface NewsRepository extends JpaRepository<NewsEntity, Long> {
@@ -15,9 +14,9 @@ public interface NewsRepository extends JpaRepository<NewsEntity, Long> {
 
     boolean existsByUrl(String url);
 
-    List<NewsEntity> findTop10ByIsTopOrderByPublishedAtDesc(boolean is_top);
+    Optional<NewsEntity> findTopByIsTopTrueOrderByPublishedAtDesc();
 
-    Optional<NewsEntity> findTopOrderByPublishedAtDesc();
+    Optional<NewsEntity> findTopByOrderByPublishedAtDesc();
 
     @Transactional
     @Modifying(clearAutomatically = true)
