@@ -1,5 +1,6 @@
 package com.swus.polyhack_echo.controller;
 
+import com.swus.polyhack_echo.dto.NewsDetailDto;
 import com.swus.polyhack_echo.dto.NewsItemDto;
 import com.swus.polyhack_echo.dto.response.DataResponseDto;
 import com.swus.polyhack_echo.dto.response.ResponseDto;
@@ -33,6 +34,7 @@ public class NewsController {
             data = newsService.getAllService();
 
             if (data.size() == 0) {
+                log.error("News data update error.");
                 return ResponseEntity.status(404).body(ResponseDto.of(404, "Data not found."));
             }
 
@@ -53,7 +55,20 @@ public class NewsController {
     // Get detail data of article
     @GetMapping("/detail/{news_id}")
     public ResponseEntity<ResponseDto> getDetail(@PathVariable Long news_id) {
-        return ResponseEntity.ok(ResponseDto.of(200));
+        NewsDetailDto data = null;
+        try {
+            data = newsService.getDetail(news_id);
+
+            if (data == null) {
+                return ResponseEntity.badRequest().body(ResponseDto.of(400, "Invalid news id."));
+            }
+
+            return ResponseEntity.ok(DataResponseDto.of(data, 200));
+        } catch (Exception e) {
+            log.error(e.getMessage());
+
+            return ResponseEntity.internalServerError().body(ResponseDto.of(500));
+        }
     }
 
     // Get top headline
