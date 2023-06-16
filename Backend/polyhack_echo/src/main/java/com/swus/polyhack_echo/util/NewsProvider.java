@@ -62,11 +62,14 @@ public class NewsProvider {
             throw new InternalError("Crawling error.");
         }
 
-        NewsEntity news = new NewsEntity(article, content);
-        newsRepository.save(news);
+        if (content != null) {
+            NewsEntity news = new NewsEntity(article, content);
+            newsRepository.save(news);
+        }
     }
 
     public void getEverything() throws InternalError {
+        log.info("News data update in progress.");
         newsApiClient.getEverything(
                 new EverythingRequest.Builder()
                         .language("en")
@@ -79,6 +82,10 @@ public class NewsProvider {
                         for (Article article : response.getArticles()) {
                             saveData(article);
                         }
+
+                        log.info("News data update completed.");
+
+                        getTopHeadlines();
                     }
 
                     @Override
@@ -91,6 +98,7 @@ public class NewsProvider {
     }
 
     public void getTopHeadlines() throws InternalError {
+        log.info("Top Headlines update in progress.");
         newsApiClient.getTopHeadlines(
                 new TopHeadlinesRequest.Builder()
                         .language("en")
@@ -100,7 +108,7 @@ public class NewsProvider {
 
                     @Override
                     public void onSuccess(ArticleResponse response) throws InternalError {
-                        for (int i = 0; i < 10; i++) {
+                        for (int i = 0; i < 5; i++) {
                             Article article = response.getArticles().get(i);
                             Optional<NewsEntity> news = newsRepository.findByUrl(article.getUrl());
 
@@ -122,6 +130,8 @@ public class NewsProvider {
                             }
 
                         }
+
+                        log.info("Top Headlines update completed.");
                     }
 
                     @Override
