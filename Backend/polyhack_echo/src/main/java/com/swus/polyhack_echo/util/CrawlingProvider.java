@@ -14,25 +14,22 @@ import java.io.IOException;
 @Slf4j
 public class CrawlingProvider {
     private String formatText(Element element) {
-        StringBuilder formattedText = new StringBuilder();
-
-        for (Element child : element.children()) {
-            formattedText.append(child.text()).append("\n");
-            formattedText.append(formatText(child));
+        if (element.is("p")) {
+            return element.text() + "\n\n";
+        } else {
+            return element.text() + "\n";
         }
-
-        return formattedText.toString();
     }
 
     private String getDataList(Document doc, String query) {
         Elements selects = doc.select(query);
-        String formattedText = null;
+        StringBuilder formattedText = new StringBuilder();
 
-        if (selects.size() == 1) {
-            formattedText = formatText(selects.get(0));
+        for (Element element : selects) {
+            formattedText.append(formatText(element));
         }
 
-        return formattedText;
+        return formattedText.toString();
     }
 
     public String getNewsContent(String url, String query) throws IOException {
@@ -43,6 +40,4 @@ public class CrawlingProvider {
 
         return getDataList(doc, query);
     }
-
-
 }

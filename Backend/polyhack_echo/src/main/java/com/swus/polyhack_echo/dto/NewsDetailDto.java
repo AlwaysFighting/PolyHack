@@ -12,17 +12,19 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 @AllArgsConstructor
-public class NewsItemDto {
+public class NewsDetailDto {
     private Long news_id;
     private String title;
+    private String content;
     private String source;
     private LocalDateTime published_at;
     private String author;
     private String image_url;
 
-    public NewsItemDto(NewsEntity news) {
+    public NewsDetailDto(NewsEntity news) {
         this.news_id = news.getId();
         this.title = news.getTitle();
+        this.content = news.getContent();
         this.source = news.getSource();
         this.published_at = news.getPublishedAt();
         this.author = news.getAuthor();
