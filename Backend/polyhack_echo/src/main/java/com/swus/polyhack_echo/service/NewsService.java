@@ -4,7 +4,6 @@ import com.swus.polyhack_echo.db.dao.NewsRepository;
 import com.swus.polyhack_echo.db.domain.NewsEntity;
 import com.swus.polyhack_echo.dto.NewsDetailDto;
 import com.swus.polyhack_echo.dto.NewsItemDto;
-import com.swus.polyhack_echo.util.NewsProvider;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,12 +15,10 @@ import java.util.List;
 @Slf4j
 public class NewsService {
     private final NewsRepository newsRepository;
-    private final NewsProvider newsProvider;
 
     @Autowired
-    public NewsService(NewsRepository newsRepository, NewsProvider newsProvider) {
+    public NewsService(NewsRepository newsRepository) {
         this.newsRepository = newsRepository;
-        this.newsProvider = newsProvider;
     }
 
     // Get entire list of news data
@@ -40,7 +37,8 @@ public class NewsService {
 
     // Get list of personalized news data
     public void getOppNewsService() {
-
+        // API connecting needed after AI part developed
+        String URL = System.getenv("AI_API_BASE_URL");
     }
 
     // Get detail data of article
