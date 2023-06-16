@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @Slf4j
 @RestController
 @RequestMapping("/news")
@@ -26,7 +28,20 @@ public class NewsController {
     // Get entire list of news data
     @GetMapping()
     public ResponseEntity<ResponseDto> getAll() {
-        return ResponseEntity.ok(ResponseDto.of(200));
+        List<NewsItemDto> data;
+        try {
+            data = newsService.getAllService();
+
+            if (data.size() == 0) {
+                return ResponseEntity.status(404).body(ResponseDto.of(404, "Data not found."));
+            }
+
+            return ResponseEntity.ok(DataResponseDto.of(data, 200));
+        } catch (Exception e) {
+            log.error(e.getMessage());
+
+            return ResponseEntity.internalServerError().body(ResponseDto.of(500));
+        }
     }
 
     // Get list of personalized news data

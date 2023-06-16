@@ -29,7 +29,7 @@ public class NewsEntity {
     private String author;
     private String url;
     private String image_url;
-    private boolean isTop;
+    private Boolean isTop;
     @CreationTimestamp
     private LocalDateTime createdAt;
 
