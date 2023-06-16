@@ -2,6 +2,7 @@ package com.swus.polyhack_echo.service;
 
 import com.swus.polyhack_echo.db.dao.NewsRepository;
 import com.swus.polyhack_echo.db.domain.NewsEntity;
+import com.swus.polyhack_echo.dto.NewsDetailDto;
 import com.swus.polyhack_echo.dto.NewsItemDto;
 import com.swus.polyhack_echo.util.NewsProvider;
 import lombok.extern.slf4j.Slf4j;
@@ -43,8 +44,15 @@ public class NewsService {
     }
 
     // Get detail data of article
-    public void getDetail() {
+    public NewsDetailDto getDetail(Long news_id) throws Exception {
+        NewsDetailDto newsDetailDto = null;
+        NewsEntity newsEntity = newsRepository.findById(news_id).orElse(null);
 
+        if (newsEntity != null) {
+            newsDetailDto = new NewsDetailDto(newsEntity);
+        }
+
+        return newsDetailDto;
     }
 
     // Get top headline
