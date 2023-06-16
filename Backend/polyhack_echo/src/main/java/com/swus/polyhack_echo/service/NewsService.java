@@ -8,6 +8,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @Slf4j
 public class NewsService {
@@ -21,7 +24,17 @@ public class NewsService {
     }
 
     // Get entire list of news data
-    public void getAllService() {
+    public List<NewsItemDto> getAllService() throws Exception {
+        List<NewsItemDto> result = new ArrayList<>();
+        List<NewsEntity> articles = newsRepository.findAllByOrderByPublishedAtDesc();
+
+        for (NewsEntity news : articles) {
+            NewsItemDto newsItemDto = new NewsItemDto(news);
+
+            result.add(newsItemDto);
+        }
+
+        return result;
     }
 
     // Get list of personalized news data
