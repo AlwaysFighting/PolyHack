@@ -8,19 +8,19 @@ struct EntireNewsAPI: Codable {
 }
 
 struct EntireNewsDatum: Codable {
-    let newsID: Int?
+    let news_id: Int?
     let title: String?
     let source: EntireSource?
-    let publishedAt: String?
+    let published_at: String?
     let author: String?
-    let imageURL: String?
+    let image_url: String?
 
     enum EntireCodingKeys: String, CodingKey {
-        case newsID = "news_id"
+        case news_id
         case title, source
-        case publishedAt = "published_at"
+        case published_at
         case author
-        case imageURL = "image_url"
+        case image_url
     }
 }
 

@@ -4,8 +4,10 @@ class HomeVC: UIViewController {
     
     // MARK: - Variable
     let newsFetcher = FetchNews()
-    var newsData: TopNewsAPI?
+    var TopnewsData: TopNewsAPI?
     
+    var entireNewsArry: [EntireNewsDatum] = []
+    var entireNewsAPI: EntireNewsAPI?
     
     // MARK: - IBOutlet
     @IBOutlet weak var tagView: UIView!
@@ -22,7 +24,14 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UI()
+        delegate()
         fetchNewsData()
+        fetchEntireNewsData()
+    }
+    
+    func delegate() {
+        self.entireTableView.delegate = self
+        self.entireTableView.dataSource = self
     }
     
     // MARK: - Func
@@ -60,7 +69,7 @@ class HomeVC: UIViewController {
             
             do {
                 let newsAPI = try JSONDecoder().decode(TopNewsAPI.self, from: data)
-                self?.newsData = newsAPI
+                self?.TopnewsData = newsAPI
                 
                 DispatchQueue.main.async {
                     self?.updateUI()
@@ -82,7 +91,8 @@ class HomeVC: UIViewController {
     }
     
     func updateUI() {
-        guard let newsData = self.newsData else {
+        
+        guard let newsData = self.TopnewsData else {
             return
         }
         
@@ -97,6 +107,10 @@ class HomeVC: UIViewController {
                     }
                 }
             }
+        }
+        
+        if let title = newsData.data?.title {
+            self.bannerTitle.text = title
         }
         
         if let author = newsData.data?.author, let source = newsData.data?.source {
@@ -132,11 +146,108 @@ class HomeVC: UIViewController {
         return ""
     }
     
+    func fetchEntireNewsData() {
+        
+        guard let url = URL(string: ENTIRE_DETAIL_URL) else {
+            print("Invalid URL")
+            return
+        }
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: url) { [weak self] (data, response, error) in
+            
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let data = data else {
+                print("No data received")
+                return
+            }
+            
+            do {
+                let newsAPI = try JSONDecoder().decode(EntireNewsAPI.self, from: data)
+                self?.entireNewsAPI = newsAPI
+                
+                DispatchQueue.main.async {
+                    // self?.entireNewsUI()
+                    self?.entireTableView.reloadData()
+                }
+            } catch {
+                print("Error decoding data: \(error.localizedDescription)")
+            }
+        }
+        task.resume()
+    }
+    
     // MARK: - IBAction
     
     
     
     
     // MARK: - @Objc
+    
+}
+
+extension HomeVC : UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return  self.entireNewsAPI?.data?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as? HomeTableViewCell else {
+            return UITableViewCell()
+        }
+    
+        
+        guard let newsData = self.entireNewsAPI?.data else {
+            return cell
+        }
+        
+        if indexPath.row < newsData.count {
+            let news = newsData[indexPath.row]
+            cell.newsTitle.text = news.title
+            
+            if news.author != nil  && news.published_at != nil {
+                cell.newsTime.text = "By \(String(describing: news.author!)), \(String(describing: news.source!)) | \(formatDateString(news.published_at!))"
+            } else if news.author == nil && news.published_at != nil {
+                cell.newsTime.text = "\(String(describing: news.source!)) | \(formatDateString(news.published_at!))"
+            } else if news.author != nil && news.published_at == nil {
+                cell.newsTime.text = "\(String(describing: news.author!))"
+            } else {
+                cell.newsTime.text = ""
+            }
+        
+                cell.newsImage.image = nil
+                cell.newsImage.contentMode = .center
+                cell.newsImage.backgroundColor = .lightGray
+                cell.newsImage.frame.size.height = 104
+                cell.newsImage.frame.size.width = 104
+                cell.newsImage.clipsToBounds = true
+                cell.newsImage.layer.cornerRadius = 18
+                
+            if let imageURL = news.image_url, let url = URL(string: imageURL) {
+                    DispatchQueue.global().async {
+                        if let data = try? Data(contentsOf: url) {
+                            let image = UIImage(data: data)
+                            
+                            DispatchQueue.main.async {
+                                if cell.newsImage.image == nil {
+                                    cell.newsImage.contentMode = .scaleAspectFill
+                                    cell.newsImage.image = image
+                                }
+                            }
+                        }
+                    }
+                }
+        }
+        
+        return cell
+    }
+    
     
 }

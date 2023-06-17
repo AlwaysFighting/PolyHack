@@ -100,10 +100,10 @@
                                     <constraint firstItem="qjK-7j-m5W" firstAttribute="height" secondItem="ktC-Wp-IuO" secondAttribute="height" id="ULL-pV-eAq"/>
                                 </constraints>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="G7r-Kn-8SV">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="G7r-Kn-8SV">
                                 <rect key="frame" x="37" y="548" width="325" height="257"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="95" id="Lho-Xo-3HN" customClass="HomeTableViewCell" customModule="PolyHack" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeTableViewCell" rowHeight="95" id="Lho-Xo-3HN" customClass="HomeTableViewCell" customModule="PolyHack" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="325" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lho-Xo-3HN" id="iik-i1-3ea">
@@ -111,25 +111,26 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n5D-mr-Kkk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="104" height="95"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="104" height="79"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" constant="104" id="JpK-VW-48I"/>
                                                         <constraint firstAttribute="width" constant="104" id="hhP-hT-4BZ"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7ok-Ws-0jO">
-                                                    <rect key="frame" x="120" y="0.0" width="205" height="95"/>
+                                                    <rect key="frame" x="120" y="16" width="205" height="79"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Old bomb kills at least 27 people, mostly children, in Somalia" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fiC-o1-nMR">
-                                                            <rect key="frame" x="0.0" y="0.0" width="205" height="69"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Old bomb kills at least 27 people, mostly children, in Somalia" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fiC-o1-nMR">
+                                                            <rect key="frame" x="0.0" y="0.0" width="205" height="60"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="69" id="0Uj-do-3s6"/>
+                                                                <constraint firstAttribute="height" constant="60" id="0Uj-do-3s6"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By Brad Lendon, CNN | 12:17 AM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9k6-NQ-TTy">
-                                                            <rect key="frame" x="0.0" y="69" width="205" height="26"/>
+                                                            <rect key="frame" x="0.0" y="60" width="205" height="19"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="10"/>
                                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -138,13 +139,13 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="7ok-Ws-0jO" firstAttribute="top" secondItem="iik-i1-3ea" secondAttribute="top" id="3Np-JE-7me"/>
+                                                <constraint firstItem="7ok-Ws-0jO" firstAttribute="top" secondItem="iik-i1-3ea" secondAttribute="top" constant="16" id="3Np-JE-7me"/>
                                                 <constraint firstItem="7ok-Ws-0jO" firstAttribute="leading" secondItem="n5D-mr-Kkk" secondAttribute="trailing" constant="16" id="7Ec-Ea-14w"/>
                                                 <constraint firstAttribute="trailing" secondItem="7ok-Ws-0jO" secondAttribute="trailing" id="HzR-yF-Bkh"/>
                                                 <constraint firstAttribute="bottom" secondItem="7ok-Ws-0jO" secondAttribute="bottom" id="gXq-3Y-KNl"/>
                                                 <constraint firstItem="n5D-mr-Kkk" firstAttribute="top" secondItem="iik-i1-3ea" secondAttribute="top" id="h9n-5v-jeA"/>
                                                 <constraint firstItem="n5D-mr-Kkk" firstAttribute="leading" secondItem="iik-i1-3ea" secondAttribute="leading" id="oZy-FO-T6w"/>
-                                                <constraint firstAttribute="bottom" secondItem="n5D-mr-Kkk" secondAttribute="bottom" id="yX6-at-OHE"/>
+                                                <constraint firstAttribute="bottom" secondItem="n5D-mr-Kkk" secondAttribute="bottom" constant="16" id="yX6-at-OHE"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -176,20 +177,20 @@
                                     <constraint firstItem="f7h-VE-539" firstAttribute="top" secondItem="8D3-5Q-fZP" secondAttribute="top" id="yMe-3U-KOF"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="India demonstrates naval strength with dual aircraft carrier exercise, a feat China has yet to accomplish" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xpM-tB-dvJ">
-                                <rect key="frame" x="34" y="304" width="322" height="65"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ssdn,mnsa,nd,msnm,asmc,mdsncmdn,cmdsmsmdnc dsmnc a" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xpM-tB-dvJ">
+                                <rect key="frame" x="34" y="304" width="322" height="43.333333333333314"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Published 12:17 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFF-g3-M3J">
-                                <rect key="frame" x="34.000000000000007" y="405.66666666666669" width="103.66666666666669" height="15.666666666666686"/>
+                                <rect key="frame" x="34.000000000000007" y="384" width="103.66666666666669" height="15.666666666666686"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By Brad Lendon, CNN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RcV-Ju-JLI">
-                                <rect key="frame" x="33.999999999999993" y="382" width="117.33333333333331" height="15.666666666666686"/>
+                                <rect key="frame" x="33.999999999999993" y="360.33333333333331" width="117.33333333333331" height="15.666666666666686"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -240,6 +241,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7519.8473282442746" y="3.5211267605633805"/>
+        </scene>
+        <!--News DetailVC-->
+        <scene sceneID="gQJ-yx-U43">
+            <objects>
+                <viewController id="A3O-hK-mDn" customClass="NewsDetailVC" customModule="PolyHack" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Q1u-bq-Sll">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Gca-7B-nNe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rGn-w6-7F5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8390" y="4"/>
         </scene>
     </scenes>
     <resources>
