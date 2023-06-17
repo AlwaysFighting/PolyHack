@@ -7,33 +7,33 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Static-->
+        <!--StaticVC-->
         <scene sceneID="xaj-Th-zqI">
             <objects>
-                <viewControllerPlaceholder storyboardName="Static" id="jua-wF-ryd" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IRF-Az-3JF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Static" referencedIdentifier="StaticVC" id="jua-wF-ryd" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="UdD-rJ-MBF"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IRF-Az-3JF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-150" y="564"/>
         </scene>
         <!--HomeVC-->
         <scene sceneID="T9J-Wz-TzH">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CEl-jw-DJe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="HomeVC" id="4Ms-fB-hjN" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="18c-uZ-GdG"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CEl-jw-DJe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="348" y="564"/>
         </scene>
-        <!--MyPage-->
+        <!--MyPageVC-->
         <scene sceneID="MZr-S6-5QA">
             <objects>
-                <viewControllerPlaceholder storyboardName="MyPage" id="WhK-ho-J6S" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M1e-8E-rbC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="MyPage" referencedIdentifier="MyPageVC" id="WhK-ho-J6S" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="wzv-a4-sLO"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="M1e-8E-rbC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="809" y="564"/>
         </scene>
@@ -45,9 +45,9 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0wJ-Rc-f4D">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <tabBarAppearance key="scrollEdgeAppearance">
-                            <color key="shadowColor" red="1" green="0.94976982139999999" blue="0.94036507319999996" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </tabBarAppearance>
                     </tabBar>
                     <connections>
