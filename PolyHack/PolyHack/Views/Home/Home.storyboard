@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F2d-n1-LZg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -65,30 +65,13 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bb5-sh-rLA" secondAttribute="trailing" constant="36" id="z3q-Yx-p6b"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="06Y-Xy-f4z"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="Home_Grey" selectedImage="Home" id="6vr-ur-ExF"/>
+                    <navigationItem key="navigationItem" id="XRX-8z-j39"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1961.0687022900763" y="3.5211267605633805"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="2vO-Y1-HSx">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="F2d-n1-LZg" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BhH-za-NXh">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="viewControllers" id="dKb-iR-s7F"/>
-                        <segue destination="G2Q-I6-sWB" kind="relationship" relationship="viewControllers" id="oxe-13-hX9"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ti4-S9-EfI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1034.3511450381679" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="6593.1297709923665" y="3.5211267605633805"/>
         </scene>
         <!--MyPage-->
         <scene sceneID="T7i-zU-HCg">
@@ -98,13 +81,14 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J5C-m2-AeC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1034" y="489"/>
+            <point key="canvasLocation" x="1580" y="532"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Home" width="24.5" height="24.5"/>
+        <image name="Home_Grey" width="24.5" height="24.5"/>
         <image name="Logo" width="270" height="117"/>
         <image name="Search" width="24" height="24"/>
-        <image name="house" catalog="system" width="128" height="104"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

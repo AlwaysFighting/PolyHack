@@ -152,10 +152,10 @@ class LoginVC: UIViewController {
             showErrorLabel()
             return
         } else {
-            let storyboard = UIStoryboard(name: "Home", bundle: nil)
-            let homeViewController = storyboard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+            let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
+            let homeViewController = storyboard.instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
             homeViewController.modalPresentationStyle = .fullScreen
-            self.present(homeViewController, animated: true, completion: nil)
+             self.present(homeViewController, animated: true, completion: nil)
         }
     }
     
