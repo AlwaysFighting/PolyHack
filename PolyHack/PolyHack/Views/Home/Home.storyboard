@@ -229,23 +229,17 @@
                     <navigationItem key="navigationItem" id="XRX-8z-j39"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="bannerAuthor" destination="RcV-Ju-JLI" id="EBo-ri-mZv"/>
                         <outlet property="bannerImage" destination="Mdl-eN-gQS" id="e83-mk-7Gx"/>
+                        <outlet property="bannerPublished" destination="rFF-g3-M3J" id="M91-je-8Zp"/>
+                        <outlet property="bannerTitle" destination="xpM-tB-dvJ" id="17J-zI-hWV"/>
+                        <outlet property="entireTableView" destination="G7r-Kn-8SV" id="Dwo-wn-THz"/>
                         <outlet property="tagView" destination="8D3-5Q-fZP" id="Uni-6H-I2E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7519.8473282442746" y="3.5211267605633805"/>
-        </scene>
-        <!--MyPage-->
-        <scene sceneID="T7i-zU-HCg">
-            <objects>
-                <viewControllerPlaceholder storyboardName="MyPage" id="G2Q-I6-sWB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Sux-Yg-8DQ"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="J5C-m2-AeC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1580" y="532"/>
         </scene>
     </scenes>
     <resources>

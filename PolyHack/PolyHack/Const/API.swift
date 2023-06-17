@@ -1,16 +1,16 @@
 import Foundation
 
 // API URL
-let BASE_URL : String  = "http://localhost:8080"
 
+let BASE_URL : String  = "http://localhost:8080"
 let NEWS_DETAIL_URL : String = "\(BASE_URL)/news/detail"
 let TOP_NEWS_API : String = "\(BASE_URL)/news/top"
 
 
-class fetchNews() {
+class FetchNews {
     
-    // Detail news
-    func fetchDetailNews(url: String, id: Int) {
+    // Detail news API
+    func fetchDetailNews(id: Int) {
         guard let url = URL(string: "\(NEWS_DETAIL_URL)/\(id)") else {
             print("Invalid URL")
             return
@@ -19,6 +19,7 @@ class fetchNews() {
         let session = URLSession.shared
         
         let task = session.dataTask(with: url) { (data, response, error) in
+            
             if let error = error {
                 print("Error: \(error.localizedDescription)")
                 return
@@ -30,7 +31,7 @@ class fetchNews() {
             }
             
             do {
-                let newsAPI = try JSONDecoder().decode(NewsAPI.self, from: data)
+                let newsAPI = try JSONDecoder().decode(EntireNewsAPI.self, from: data)
                 print(newsAPI)
             } catch {
                 print("Error decoding data: \(error.localizedDescription)")
@@ -39,8 +40,8 @@ class fetchNews() {
         task.resume()
     }
 
-    // Top News
-    func fetchTopNews(url : String) {
+    // Top News API
+    func fetchTopNews() {
         guard let url = URL(string: TOP_NEWS_API) else {
             print("Invalid URL")
             return
@@ -60,7 +61,7 @@ class fetchNews() {
             }
             
             do {
-                let newsAPI = try JSONDecoder().decode(NewsAPI.self, from: data)
+                let newsAPI = try JSONDecoder().decode(TopNewsAPI.self, from: data)
                 print(newsAPI)
             } catch {
                 print("Error decoding data: \(error.localizedDescription)")
