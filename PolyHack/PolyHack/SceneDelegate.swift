@@ -17,8 +17,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         self.window = window
         
-        let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
-        let homeTabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let homeTabBarController = storyboard.instantiateViewController(withIdentifier: "SplashVC") as! SplashVC
         window.rootViewController = homeTabBarController
         
         window.makeKeyAndVisible()
