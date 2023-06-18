@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
 public class TopicProvider {
     private final String API_URL = System.getenv("AI_API_BASE_URL") + "/topic";
 
-    public String getTopicWords(String content) throws JsonProcessingException {
+    public TopicResponseDto getTopicWords(String content) throws JsonProcessingException {
 
         // header
         HttpHeaders headers = new HttpHeaders();
@@ -34,8 +34,8 @@ public class TopicProvider {
         if (response.getStatusCode().is2xxSuccessful()) {
             String res = response.getBody();
             TopicResponseDto topicResponseDto = new TopicResponseDto(res);
-            
-            return topicResponseDto.toString();
+
+            return topicResponseDto;
         } else {
             log.error("[ " + API_URL + " ]" + " Request failed.");
 
