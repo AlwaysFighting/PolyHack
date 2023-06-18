@@ -13,7 +13,7 @@ class NewsDetailVC: UIViewController {
     @IBOutlet weak var newsDate: UILabel!
     @IBOutlet weak var newsImage: UIImageView!
     @IBOutlet weak var newsContents: UILabel!
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var scrollView: UIView!
     
     
     // MARK: - LifeCycle
@@ -28,11 +28,6 @@ class NewsDetailVC: UIViewController {
         // Image
         newsImage.contentMode = .scaleAspectFill
         newsImage.clipsToBounds = true
-
-        // ScrollView Content Height Control
-        let textHeight = newsContents.sizeThatFits(CGSize(width: newsContents.frame.width, height: CGFloat.greatestFiniteMagnitude)).height
-        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: textHeight)
-        newsContents.frame = CGRect(x: 0, y: 0, width: scrollView.frame.width, height: textHeight)
     }
     
     // MARK: - UI
@@ -88,6 +83,7 @@ class NewsDetailVC: UIViewController {
             }
         }
         
+        
         if let title = newsData.data?.title {
             self.newsTitle.text = title
         }
@@ -110,6 +106,7 @@ class NewsDetailVC: UIViewController {
         }
         
     }
+    
     
     func formatDateString(_ dateString: String) -> String {
         let formatter = DateFormatter()

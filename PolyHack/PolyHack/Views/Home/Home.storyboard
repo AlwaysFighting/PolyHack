@@ -284,7 +284,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wwr-fu-Fan">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="3400"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="3500"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="India demonstrates naval strength with dual aircraft carrier exercise, a feat China has yet to accomplish" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tt7-iS-aN5">
                                                 <rect key="frame" x="33" y="29.000000000000004" width="324" height="61.333333333333343"/>
@@ -325,10 +325,10 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="7a0-og-eJB" firstAttribute="top" secondItem="EYH-gK-Ck8" secondAttribute="bottom" constant="20" id="4qc-gM-ZmK"/>
+                                            <constraint firstAttribute="height" constant="3500" id="6Lc-cH-kLf"/>
                                             <constraint firstAttribute="trailing" secondItem="Srf-Xm-jSs" secondAttribute="trailing" constant="36" id="B2S-p5-JM1"/>
                                             <constraint firstItem="Srf-Xm-jSs" firstAttribute="top" secondItem="7a0-og-eJB" secondAttribute="bottom" constant="20" id="Gch-iX-SGw"/>
                                             <constraint firstItem="Tt7-iS-aN5" firstAttribute="leading" secondItem="Wwr-fu-Fan" secondAttribute="leading" constant="33" id="Glk-7p-18o"/>
-                                            <constraint firstAttribute="height" constant="3400" id="Mkj-Zr-9AU"/>
                                             <constraint firstItem="EYH-gK-Ck8" firstAttribute="leading" secondItem="Wwr-fu-Fan" secondAttribute="leading" constant="33" id="R52-tc-Mfk"/>
                                             <constraint firstItem="Tt7-iS-aN5" firstAttribute="top" secondItem="Wwr-fu-Fan" secondAttribute="top" constant="29" id="chw-hW-939"/>
                                             <constraint firstItem="EYH-gK-Ck8" firstAttribute="top" secondItem="Tt7-iS-aN5" secondAttribute="bottom" constant="13" id="f0P-uT-l9A"/>
@@ -367,7 +367,7 @@
                         <outlet property="newsDate" destination="f2m-LR-Rve" id="C1y-Tx-45X"/>
                         <outlet property="newsImage" destination="7a0-og-eJB" id="Drd-ao-rkz"/>
                         <outlet property="newsTitle" destination="Tt7-iS-aN5" id="1T5-c8-pWi"/>
-                        <outlet property="scrollView" destination="LLx-Y9-Pic" id="Krm-2m-bVH"/>
+                        <outlet property="scrollView" destination="Wwr-fu-Fan" id="iPI-BS-CYS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rGn-w6-7F5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -246,12 +246,12 @@ extension HomeVC : UITableViewDelegate {
 extension HomeVC : UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        fetchEntireNewsData()
-        
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let nextViewController = storyboard.instantiateViewController(withIdentifier: "NewsDetailVC") as! NewsDetailVC
         
-        nextViewController.selectedIndex = newsDetailID
+        if let selectedData = entireNewsAPI?.data?[indexPath.row].news_id {
+                nextViewController.selectedIndex = selectedData
+        }
         
         self.modalPresentationStyle = .fullScreen
         self.present(nextViewController, animated: true, completion: nil)
