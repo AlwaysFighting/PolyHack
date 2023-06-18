@@ -1,17 +1,17 @@
 package com.swus.polyhack_echo.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.swus.polyhack_echo.dto.NewsDetailDto;
 import com.swus.polyhack_echo.dto.NewsItemDto;
 import com.swus.polyhack_echo.dto.response.DataResponseDto;
 import com.swus.polyhack_echo.dto.response.ResponseDto;
 import com.swus.polyhack_echo.service.NewsService;
+import com.swus.polyhack_echo.util.TopicProvider;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -46,10 +46,13 @@ public class NewsController {
         }
     }
 
-    // Get list of personalized news data
-    @GetMapping("/opp")
-    public ResponseEntity<ResponseDto> getOppNews() {
-        return ResponseEntity.ok(ResponseDto.of(200));
+    // Get list of topic words // * Get list of personalized news data (incomplete)
+    @PostMapping(value = "/opp", consumes = MediaType.TEXT_PLAIN_VALUE)
+    public ResponseEntity<ResponseDto> getOppNews(@RequestBody String text) throws JsonProcessingException {
+        TopicProvider topicProvider = new TopicProvider();
+        String data = topicProvider.getTopicWords(text);
+
+        return ResponseEntity.ok(DataResponseDto.of(data, 200));
     }
 
     // Get detail data of article

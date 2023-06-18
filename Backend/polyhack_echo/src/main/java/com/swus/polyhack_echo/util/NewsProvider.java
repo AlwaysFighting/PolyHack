@@ -1,5 +1,6 @@
 package com.swus.polyhack_echo.util;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.kwabenaberko.newsapilib.NewsApiClient;
 import com.kwabenaberko.newsapilib.models.Article;
 import com.kwabenaberko.newsapilib.models.Source;
@@ -23,11 +24,13 @@ public class NewsProvider {
     private final String API_KEY = System.getenv("NEWS_API_KEY");
     private final NewsApiClient newsApiClient = new NewsApiClient(API_KEY);
     private final CrawlingProvider crawlingProvider;
+    private final TopicProvider topicProvider;
     private final NewsRepository newsRepository;
 
     @Autowired
-    public NewsProvider(CrawlingProvider crawlingProvider, NewsRepository newsRepository) {
+    public NewsProvider(CrawlingProvider crawlingProvider, NewsRepository newsRepository, TopicProvider topicProvider) {
         this.crawlingProvider = crawlingProvider;
+        this.topicProvider = topicProvider;
         this.newsRepository = newsRepository;
     }
 
@@ -43,6 +46,22 @@ public class NewsProvider {
         return content;
     }
 
+    public String getTopicWords(String content) {
+        String topic_words = null;
+
+        if (content == null) {
+            return null;
+        }
+
+        try {
+            topic_words = topicProvider.getTopicWords(content);
+
+            return topic_words;
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException("Topic API error.");
+        }
+    }
+
     public String getQuery(String source) {
 
         return source.equals("CNN") ? ".article__content .paragraph" : "#article-body p,h2";
@@ -55,6 +74,7 @@ public class NewsProvider {
         }
 
         String content = null;
+        String topic_words = null;
 
         try {
             content = crawlingProvider.getNewsContent(article.getUrl(), getQuery(article.getSource().getName()));
@@ -63,7 +83,14 @@ public class NewsProvider {
         }
 
         if (content != null) {
-            NewsEntity news = new NewsEntity(article, content);
+            // Get topic words
+//            try {
+//                topic_words = topicProvider.getTopicWords(content);
+//            } catch (JsonProcessingException e) {
+//                throw new RuntimeException("Topic API error.");
+//            }
+
+            NewsEntity news = new NewsEntity(article, content, null);
             newsRepository.save(news);
         }
     }
@@ -119,6 +146,7 @@ public class NewsProvider {
                                             new NewsEntity(
                                                     article,
                                                     getContent(article.getUrl(), getQuery(article.getSource().getName())),
+                                                    null,
                                                     true
                                             )
                                     );
