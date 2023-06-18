@@ -32,9 +32,10 @@ public class NewsEntity {
     private Boolean isTop;
     @CreationTimestamp
     private LocalDateTime createdAt;
+    private String topic_words;
 
     @Builder
-    public NewsEntity(Article article, String content) {
+    public NewsEntity(Article article, String content, String topic_words) {
         this.title = article.getTitle();
         this.source = article.getSource().getName();
         this.publishedAt = LocalDateTime.parse(article.getPublishedAt().replace("Z", ""));
@@ -42,10 +43,11 @@ public class NewsEntity {
         this.url = article.getUrl();
         this.image_url = article.getUrlToImage();
         this.content = content;
+        this.topic_words = topic_words;
         isTop = false;
     }
 
-    public NewsEntity(Article article, String content, boolean isTop) {
+    public NewsEntity(Article article, String content, String topic_words, boolean isTop) {
         this.title = article.getTitle();
         this.source = article.getSource().getName();
         this.publishedAt = LocalDateTime.parse(article.getPublishedAt().replace("Z", ""));
@@ -53,6 +55,7 @@ public class NewsEntity {
         this.url = article.getUrl();
         this.image_url = article.getUrlToImage();
         this.content = content;
+        this.topic_words = topic_words;
         this.isTop = isTop;
     }
 }

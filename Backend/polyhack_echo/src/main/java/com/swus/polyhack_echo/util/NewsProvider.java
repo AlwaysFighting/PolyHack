@@ -63,7 +63,7 @@ public class NewsProvider {
         }
 
         if (content != null) {
-            NewsEntity news = new NewsEntity(article, content);
+            NewsEntity news = new NewsEntity(article, content, null);
             newsRepository.save(news);
         }
     }
@@ -119,6 +119,7 @@ public class NewsProvider {
                                             new NewsEntity(
                                                     article,
                                                     getContent(article.getUrl(), getQuery(article.getSource().getName())),
+                                                    null,
                                                     true
                                             )
                                     );

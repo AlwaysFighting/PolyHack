@@ -1,7 +1,9 @@
 package com.swus.polyhack_echo.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.swus.polyhack_echo.dto.NewsDetailDto;
 import com.swus.polyhack_echo.dto.NewsItemDto;
+import com.swus.polyhack_echo.dto.TopicResponseDto;
 import com.swus.polyhack_echo.dto.response.DataResponseDto;
 import com.swus.polyhack_echo.dto.response.ResponseDto;
 import com.swus.polyhack_echo.service.NewsService;
@@ -46,10 +48,23 @@ public class NewsController {
         }
     }
 
-    // Get list of personalized news data
-    @GetMapping("/opp")
-    public ResponseEntity<ResponseDto> getOppNews() {
-        return ResponseEntity.ok(ResponseDto.of(200));
+    // Get list of topic words // * Get list of personalized news data (incomplete)
+    @GetMapping(value = "/opp/{news_id}")
+    public ResponseEntity<ResponseDto> getOppNews(@PathVariable Long news_id) throws JsonProcessingException {
+        TopicResponseDto data = null;
+        try {
+            data = newsService.getOppNewsService(news_id);
+
+            if (data == null) {
+                return ResponseEntity.badRequest().body(ResponseDto.of(400, "Invalid news id."));
+            }
+
+            return ResponseEntity.ok(DataResponseDto.of(data, 200));
+        } catch (Exception e) {
+            log.error(e.getMessage());
+
+            return ResponseEntity.internalServerError().body(ResponseDto.of(500));
+        }
     }
 
     // Get detail data of article

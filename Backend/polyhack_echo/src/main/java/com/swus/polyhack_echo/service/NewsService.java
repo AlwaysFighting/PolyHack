@@ -4,6 +4,8 @@ import com.swus.polyhack_echo.db.dao.NewsRepository;
 import com.swus.polyhack_echo.db.domain.NewsEntity;
 import com.swus.polyhack_echo.dto.NewsDetailDto;
 import com.swus.polyhack_echo.dto.NewsItemDto;
+import com.swus.polyhack_echo.dto.TopicResponseDto;
+import com.swus.polyhack_echo.util.TopicProvider;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,10 +17,12 @@ import java.util.List;
 @Slf4j
 public class NewsService {
     private final NewsRepository newsRepository;
+    private final TopicProvider topicProvider;
 
     @Autowired
-    public NewsService(NewsRepository newsRepository) {
+    public NewsService(NewsRepository newsRepository, TopicProvider topicProvider) {
         this.newsRepository = newsRepository;
+        this.topicProvider = topicProvider;
     }
 
     // Get entire list of news data
@@ -36,9 +40,21 @@ public class NewsService {
     }
 
     // Get list of personalized news data
-    public void getOppNewsService() {
-        // API connecting needed after AI part developed
-        String URL = System.getenv("AI_API_BASE_URL");
+    public TopicResponseDto getOppNewsService(Long news_id) throws Exception {
+        NewsEntity newsEntity = newsRepository.findById(news_id).orElse(null);
+
+        if (newsEntity == null) {
+            throw new Exception("Invalid news id.");
+        }
+
+        TopicResponseDto topicResponseDto = null;
+        String content = newsEntity.getContent();
+
+        if (content != null) {
+            topicResponseDto = topicProvider.getTopicWords(content);
+        }
+
+        return topicResponseDto;
     }
 
     // Get detail data of article
