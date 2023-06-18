@@ -9,6 +9,8 @@ class HomeVC: UIViewController {
     var entireNewsArry: [EntireNewsDatum] = []
     var entireNewsAPI: EntireNewsAPI?
     
+    var newsDetailID : Int = 1
+    
     // MARK: - IBOutlet
     @IBOutlet weak var tagView: UIView!
     @IBOutlet weak var bannerImage: UIImageView!
@@ -108,7 +110,7 @@ class HomeVC: UIViewController {
                 }
             }
         }
-        
+    
         if let title = newsData.data?.title {
             self.bannerTitle.text = title
         }
@@ -172,7 +174,6 @@ class HomeVC: UIViewController {
                 self?.entireNewsAPI = newsAPI
                 
                 DispatchQueue.main.async {
-                    // self?.entireNewsUI()
                     self?.entireTableView.reloadData()
                 }
             } catch {
@@ -181,17 +182,9 @@ class HomeVC: UIViewController {
         }
         task.resume()
     }
-    
-    // MARK: - IBAction
-    
-    
-    
-    
-    // MARK: - @Objc
-    
 }
 
-extension HomeVC : UITableViewDelegate, UITableViewDataSource {
+extension HomeVC : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return  self.entireNewsAPI?.data?.count ?? 0
@@ -202,7 +195,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as? HomeTableViewCell else {
             return UITableViewCell()
         }
-    
+        
         
         guard let newsData = self.entireNewsAPI?.data else {
             return cell
@@ -221,33 +214,47 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
             } else {
                 cell.newsTime.text = ""
             }
-        
-                cell.newsImage.image = nil
-                cell.newsImage.contentMode = .center
-                cell.newsImage.backgroundColor = .lightGray
-                cell.newsImage.frame.size.height = 104
-                cell.newsImage.frame.size.width = 104
-                cell.newsImage.clipsToBounds = true
-                cell.newsImage.layer.cornerRadius = 18
-                
+            
+            cell.newsImage.image = nil
+            cell.newsImage.contentMode = .center
+            cell.newsImage.backgroundColor = .lightGray
+            cell.newsImage.frame.size.height = 104
+            cell.newsImage.frame.size.width = 104
+            cell.newsImage.clipsToBounds = true
+            cell.newsImage.layer.cornerRadius = 18
+            
             if let imageURL = news.image_url, let url = URL(string: imageURL) {
-                    DispatchQueue.global().async {
-                        if let data = try? Data(contentsOf: url) {
-                            let image = UIImage(data: data)
-                            
-                            DispatchQueue.main.async {
-                                if cell.newsImage.image == nil {
-                                    cell.newsImage.contentMode = .scaleAspectFill
-                                    cell.newsImage.image = image
-                                }
+                DispatchQueue.global().async {
+                    if let data = try? Data(contentsOf: url) {
+                        let image = UIImage(data: data)
+                        
+                        DispatchQueue.main.async {
+                            if cell.newsImage.image == nil {
+                                cell.newsImage.contentMode = .scaleAspectFill
+                                cell.newsImage.image = image
                             }
                         }
                     }
                 }
+            }
         }
-        
         return cell
     }
-    
-    
+
+}
+
+extension HomeVC : UITableViewDataSource {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        fetchEntireNewsData()
+        
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let nextViewController = storyboard.instantiateViewController(withIdentifier: "NewsDetailVC") as! NewsDetailVC
+        
+        nextViewController.selectedIndex = newsDetailID
+        
+        self.modalPresentationStyle = .fullScreen
+        self.present(nextViewController, animated: true, completion: nil)
+    }
+
 }

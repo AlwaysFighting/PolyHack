@@ -9,17 +9,17 @@ struct NewsDetailAPI: Codable {
 
 // MARK: - DataClass
 struct NewsDetailDataClass: Codable {
-    let newsID: Int?
-    let title, content, source, publishedAt: String?
+    let news_id: Int?
+    let title, content, source, published_at: String?
     let author: String?
-    let imageURL: String?
+    let image_url: String?
 
     enum CodingKeys: String, CodingKey {
-        case newsID
+        case news_id
         case title, content, source
-        case publishedAt
+        case published_at
         case author
-        case imageURL
+        case image_url
     }
 }
 

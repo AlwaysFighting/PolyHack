@@ -43,34 +43,8 @@ class FetchNews {
     
     
     // Detail news API
-    func fetchDetailNews(id: Int) {
-        guard let url = URL(string: "\(NEWS_DETAIL_URL)/\(id)") else {
-            print("Invalid URL")
-            return
-        }
-        
-        let session = URLSession.shared
-        
-        let task = session.dataTask(with: url) { (data, response, error) in
-            
-            if let error = error {
-                print("Error: \(error.localizedDescription)")
-                return
-            }
-            
-            guard let data = data else {
-                print("No data received")
-                return
-            }
-            
-            do {
-                let newsAPI = try JSONDecoder().decode(EntireNewsAPI.self, from: data)
-                print(newsAPI)
-            } catch {
-                print("Error decoding data: \(error.localizedDescription)")
-            }
-        }
-        task.resume()
+    func detailNews(id: Int) -> String {
+        return  "\(NEWS_DETAIL_URL)/\(id)"
     }
 
     // Top News API
